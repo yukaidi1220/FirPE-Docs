@@ -1,0 +1,185 @@
+# Edgeless 插件包管理工具（Edgeless Plugin-packages Tool）
+
+> 灵感来源于微软发布的`winget`和 debian 系 Linux 下的`apt`，我们为习惯这两种工具语法的用户做了语法适配 > 需要 FirPE 1.7.1 以上版本
+
+### 快速开始
+
+1.  在 FirPE 中按下`Win+R`快捷键，输入`cmd`并回车打开命令提示符窗口
+2.  以安装微信为例，输入`ept install wechat`并回车，程序会输出运行提示、插件信息和确认提示 > 由于此时是第一次使用，程序会自动执行`ept-update`更新索引
+    ![](./img/ept-1.png)
+3.  按下`y`确认安装，程序会自动完成安装过程 > 如果同时想要将插件保存到启动盘，请按`a`
+    ![](./img/ept-2.png)
+4.  此时桌面上已经出现了微信的快捷方式，插件安装成功
+
+### 具体使用
+
+目前 ept 提供了以下命令：`ept-install` `ept-search` `ept-remove` `ept-update` `ept-upgrade` `ept-getver`
+
+#### **ept-install**
+
+_**作用：**_
+
+安装指定插件至当前 PE 环境，同时也提供安装并保存插件包至启动盘的功能
+
+> 当输入有误时会自动将关键词提交给`ept-search`查找
+
+_**用法：**_
+
+`ept-install [序号] {-y/-a/-l}`或`ept-install [软件名] {-y/-a/-l}`或`ept-install [关键词]`
+
+_**同义用法：**_
+
+`ept&nbsp;install` `ept-get&nbsp;install`
+
+_**示例：**_
+
+`ept-install 36`
+
+> 此处 36 作为序号处理，执行安装 > 插件对应的序号请使用[ept-search](#ept-search)查看
+
+`ept-install 36 -a`
+
+> 此处 36 作为序号处理，执行安装并保存
+
+`ept-install qq -l`
+
+> 此处 qq 作为软件名处理，执行通过[LocalBoost](/v2/playground/localboost.html)安装并保存
+
+`ept-install "google chrome" -y`
+
+> 此处 google chrome 作为软件名处理，执行安装，加引号是因为软件名中有空格
+
+`ept-install wech`
+
+> 此处 wech 作为关键词处理，执行**搜索**，因为没有一款名为 wech 的软件存在
+
+_**注意：**_
+
+- 可以使用`-y`或`-a`或`-l`参数跳过确认，`-y`执行安装，`-a`执行安装并保存，`-l`执行通过[LocalBoost](/v2/playground/localboost.html)安装并保存，仅对`ept-install [序号]`和`ept-install [软件名]`有效
+
+- `ept-install [软件名]`中的`软件名`需要全字匹配；如果软件名包含空格或特殊符号，请在软件名两侧加上英文双引号，例如`ept-install "google chrome" -a`
+
+- 当使用`ept-install [关键词]`时事实上在调用`ept-search`，关键词会依次优先解析为有效序号、软件名；转至[ept-search](#ept-search)的条目下查看更多关于`ept-install [关键词]`的注意事项
+
+- 插件包对应的序号由我们的后端程序自动生成，会随着插件包仓库的增减变化，请勿依赖于序号安装插件(使用软件名即可)
+
+- 程序会自动查找本地所有磁盘的`\Edgeless\Resource`目录中的同名目标插件包（.7z/.7zf）以加快运行速度
+
+#### **ept-search**
+
+_**作用：**_
+
+使用关键词查找指定插件的序号
+
+_**用法：**_
+
+`ept-search [关键词]`
+
+_**同义用法：**_
+
+`ept&nbsp;search` `ept-cache&nbsp;search`
+
+_**示例：**_
+
+`ept-search wechat`
+
+_**注意：**_
+
+- 不支持同义词转义、高级搜索、正则、标签等，请使用简洁准确的关键词搜索
+- 经测试，部分输入法不支持在 cmd 窗口中显示候选框，请使用手心输入法或搜狗五笔
+- 为了便捷，可以直接使用`ept-install [关键词]`
+
+#### **ept-remove**
+
+_**作用：**_
+
+在当前 PE 环境中移除指定的插件
+
+_**用法：**_
+
+`ept-remove [序号] {-y}`或`ept-remove [关键词]`
+
+_**同义用法：**_
+
+`ept&nbsp;remove` `ept-get&nbsp;remove`
+
+_**示例：**_
+
+`ept-remove wechat`
+
+`ept-remove 1`
+
+`ept-remove 1 -y`
+
+_**注意：**_
+
+- 请先使用`ept-remove [关键词]`查找需要移除的插件，然后使用`ept-remove [序号]`将其移除
+- 可以使用`-y`参数跳过确认，仅对`ept-remove [序号]`有效
+- 不支持同义词转义、高级搜索、正则、标签等，请使用简洁准确的关键词搜索
+- 经测试，部分输入法不支持在 cmd 窗口中显示候选框，请使用手心输入法或搜狗五笔
+- 如果在本地的加速仓库中发现同名插件，则会将其从仓库中删除（无论此插件是否使用 LocalBoost 加载）
+- 目前 remove 能做到的只是将插件的安装目录和快捷方式删除（非强制），未来第二代插件包规范实行后 remove 的功能会进一步增强
+
+#### **ept-update**
+
+_**作用：**_
+
+更新本地的插件索引文件
+
+_**用法：**_
+
+`ept-update`
+
+_**同义用法：**_
+
+`ept&nbsp;update` `ept-get&nbsp;update`
+
+_**注意：**_
+
+- 当执行需要用到索引文件的其他 ept 命令时，如果索引文件缺失则`ept-update`会被自动调用执行
+
+#### **ept-upgrade**
+
+_**作用：**_
+
+查找启动盘中插件的可用更新，同时对名称不规范的插件包文件进行提示
+
+_**用法：**_ `ept-upgrade {-y/-b}`
+
+_**同义用法：**_
+
+`ept&nbsp;upgrade` `ept-get&nbsp;upgrade`
+
+_**示例：**_
+
+`ept-upgrade`
+
+`ept-upgrade -y`
+
+`ept-upgrade -b`
+
+_**注意：**_
+
+- 可以使用`-y`或`-b`参数跳过确认，`-y`执行更新，`-b`执行更新但仅下载而不加载，以减少对 U 盘的频繁读写
+- 过期的插件会被移动至同目录下的`过期插件包`目录中并禁用
+- 如果 Resource 子目录文件夹内的插件有更新，新的插件包不会自动归位到原文件夹内，而是会出现在 Resource 文件夹根目录
+
+#### **ept-getver**
+
+_**作用：**_
+
+获取指定插件的最新版本号
+
+_**用法：**_
+
+`ept-getver [软件名]`
+
+_**同义用法：**_
+
+`ept&nbsp;getver` `ept-cache madison`
+
+_**注意：**_
+
+- 如果软件名包含空格，请在软件名两侧加上英文双引号，例如`ept-getver "google chrome"`
+- 如果软件名无效，会输出`InvaildName`，否则会直接输出版本号
+- 运行一次本命令，程序会将版本号写入至`X:\Users\ept\upgrade\ver_ol.txt`；如果运行后此文本文件不存在，则说明输入的软件名无效

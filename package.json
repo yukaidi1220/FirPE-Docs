@@ -1,0 +1,23 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "SET NODE_OPTIONS=--openssl-legacy-provider && vuepress dev docs",
+    "build": "SET NODE_OPTIONS=--openssl-legacy-provider && vuepress build docs"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.9.9",
+    "@vuepress/plugin-medium-zoom": "^1.9.9",
+    "vuepress": "^1.9.9",
+    "vuepress-plugin-auto-sidebar": "^1.5.0"
+  },
+  "dependencies": {
+    "@vuepress/core": "^1.9.9",
+    "markdown-it-disable-url-encode": "^1.0.1",
+    "vuepress-theme-yilia-plus": "^1.0.0"
+  }
+}
