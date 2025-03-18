@@ -36,6 +36,13 @@ export const zhSidebar: DefaultTheme.Sidebar = {
         { text: '捐赠渠道', link: `/sd/donation/` },
       ]
     },
-    { text: '友情链接', link: `/links/` },
+    {
+      text: '其它',
+      collapsed: false,
+      items: [
+        { text: '发展历程', link: `/other/history/` },
+        { text: '友情链接', link: `/other/links/` },
+      ]
+    },
   ],
 }
