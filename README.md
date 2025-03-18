@@ -2,11 +2,11 @@
 
 ## 介绍
 
-使用 VuePress 搭建的 FirPE 帮助文档
+使用 VitePress 搭建的 FirPE 帮助文档
 
 ## 软件架构
 
-使用 Vuepress 生成
+使用 VitePress 生成
 
 ## 安装教程
 
@@ -15,8 +15,8 @@
 
 ## 使用说明
 
-- 本地预览: `npm run dev`
-- 编译打包: `npm run build`
+- 本地预览: `npm run docs:dev`
+- 编译打包: `npm run docs:build`
 
 ## 参与贡献
 
