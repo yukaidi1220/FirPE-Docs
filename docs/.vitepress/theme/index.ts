@@ -104,10 +104,10 @@ export default {
     )
     // giscus配置
     giscusTalk({
-      repo: 'Aurorxa/open', //仓库
-      repoId: 'R_kgDON-Yh3g', //仓库ID
-      category: 'Announcements', // 讨论分类
-      categoryId: 'DIC_kwDON-Yh3s4CnRB5', //讨论分类ID
+      repo: '834772509/FirPE-Docs', //仓库
+      repoId: 'R_kgDOOJ0pSg', //仓库ID
+      category: 'General', // 讨论分类
+      categoryId: 'DIC_kwDOOJ0pSs4CoKSL', //讨论分类ID
       mapping: 'pathname',
       inputPosition: 'bottom',
       lang: 'zh-CN',
