@@ -29,14 +29,6 @@ export const zhSidebar: DefaultTheme.Sidebar = {
       ]
     },
     {
-      text: '联系我们',
-      collapsed: false,
-      items: [
-        { text: '联系方式', link: `/connect/way/` },
-        { text: '社交媒体', link: `/connect/social/` },
-      ]
-    },
-    {
       text: '支持与捐赠',
       collapsed: false,
       items: [
