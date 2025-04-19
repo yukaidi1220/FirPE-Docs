@@ -26,8 +26,12 @@
     ],
     "rewrites": [
         {
+            "source": "/FirPE-Docs/*",
+            "destination": "/docs/.vitepress/dist/:splat"
+        },
+        {
             "source": "/*",
-            "destination": "/docs/.vitepress/dist/*"
+            "destination": "/docs/.vitepress/dist/:splat"
         }
     ]
 }    
