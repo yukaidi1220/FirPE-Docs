@@ -36,5 +36,5 @@
             "source": "/*",
             "destination": "/docs/.vitepress/dist/:splat"
         }
-    ],
+    ]
 }    
