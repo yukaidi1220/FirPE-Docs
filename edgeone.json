@@ -30,11 +30,11 @@
             "destination": "/",
             "statusCode": 302
         }
-    ]
+    ],
     "rewrites": [
         {
             "source": "/*",
             "destination": "/docs/.vitepress/dist/:splat"
         }
-    ]
+    ],
 }    
