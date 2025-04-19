@@ -1,0 +1,37 @@
+{
+    "headers": [
+        {
+            "source": "/*",
+            "headers": [
+                {
+                    "key": "Access-Control-Allow-Origin",
+                    "value": "*"
+                },
+                {
+                    "key": "X-Frame-Options",
+                    "value": "DENY"
+                },
+                {
+                    "key": "Cache-Control",
+                    "value": "max-age=1209600"
+                },
+                {
+                    "key": "X-Powered-By",
+                    "value": ""
+                }
+            ]
+        }
+    ],
+    "caches": [
+        {
+            "source": "/*",
+            "cacheTtl": 604800
+        }
+    ],
+    "rewrites": [
+        {
+            "source": "/*",
+            "destination": "./docs/.vitepress/dist/*"
+        }
+    ]
+}    
