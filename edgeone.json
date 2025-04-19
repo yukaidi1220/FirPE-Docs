@@ -15,10 +15,6 @@
                     "key": "Cache-Control",
                     "value": "max-age=1209600"
                 },
-                {
-                    "key": "X-Powered-By",
-                    "value": ""
-                }
             ]
         }
     ],
