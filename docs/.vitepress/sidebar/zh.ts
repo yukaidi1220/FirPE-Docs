@@ -1,48 +1,47 @@
-import { DefaultTheme } from 'vitepress'
+import { DefaultTheme } from "vitepress";
 
 // 中文侧边栏
 export const zhSidebar: DefaultTheme.Sidebar = {
-  '/': [
+  "/": [
     {
-      text: '介绍',
+      text: "入门指引",
       collapsed: false,
       items: [
-        { text: '快速开始', link: `/guide/quickstart/` },
-        { text: '理念', link: `/guide/philosophy/` },
-        { text: '为什么选择 FirPE？', link: `/guide/why/` },
-      ]
+        { text: "快速开始", link: `/guide/quickstart/` },
+        { text: "什么是 WinPE？", link: `/guide/whaiispe/` },
+        { text: "为什么选择 FirPE？", link: `/guide/why/` },
+        { text: "如何使用启动盘进入WinPE？", link: `/guide/enterpe/` },
+      ],
     },
     {
-      text: '功能特点',
+      text: "功能解析",
       collapsed: false,
       items: [
-        { text: '核心功能', link: `/feature/core/` },
-        { text: '特色亮点', link: `/feature/highlights/` },
-      ]
+        { text: "启动盘制作指南", link: `/feature/bootdisk/` },
+        { text: "个性化配置指南", link: `/feature/configguide/` },
+      ],
     },
     {
-      text: '常见问题',
+      text: "高阶应用",
       collapsed: false,
       items: [
-        { text: '常见问题解答', link: `/qa/core/` },
-        { text: '故障排除', link: `/qa/exclude/` },
-      ]
+        { text: "生命周期钩子", link: `/advanced/hooks/` },
+        { text: "插件生态速通", link: `/advanced/plugins/` },
+      ],
     },
     {
-      text: '支持与捐赠',
+      text: "技术支持",
       collapsed: false,
       items: [
-        { text: '支持方式', link: `/sd/support/` },
-        { text: '捐赠渠道', link: `/sd/donation/` },
-      ]
+        { text: "常见问题解答", link: `/sd/qa/` },
+        { text: "技术支持渠道", link: `/sd/support/` },
+        { text: "捐赠支持渠道", link: `/sd/donation/` },
+      ],
     },
     {
-      text: '其它',
+      text: "关于我们",
       collapsed: false,
-      items: [
-        { text: '发展历程', link: `/other/history/` },
-        { text: '友情链接', link: `/other/links/` },
-      ]
+      items: [{ text: "发展历程", link: `/other/history/` }],
     },
   ],
-}
+};
