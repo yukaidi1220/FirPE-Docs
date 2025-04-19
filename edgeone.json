@@ -24,11 +24,14 @@
             "cacheTtl": 604800
         }
     ],
-    "rewrites": [
+    "redirects": [
         {
-            "source": "/FirPE-Docs/*",
-            "destination": "/:splat"
-        },
+            "source": "/FirPE-Docs",
+            "destination": "/",
+            "statusCode": 302
+        }
+    ]
+    "rewrites": [
         {
             "source": "/*",
             "destination": "/docs/.vitepress/dist/:splat"
